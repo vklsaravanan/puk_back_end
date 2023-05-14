@@ -1,20 +1,32 @@
 package com.puk.compiler.controller;
 
 import com.puk.compiler.pojo.CompilerRequest;
+import com.puk.compiler.pojo.CompilerResponse;
+import com.puk.compiler.service.CompileService;
+import jakarta.inject.Inject;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
+import java.io.IOException;
 
 @Path("/puk")
 public class PukController {
+
+
+    @Inject
+    private CompileService service;
+
+
 
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Response compilePukCode(CompilerRequest compilerRequest){
-        return Response.ok(compilerRequest.language()).build();
+
+        CompilerResponse response = service.compileCodeAndGetOutput(compilerRequest);
+        return Response.ok(response).build();
     }
 }

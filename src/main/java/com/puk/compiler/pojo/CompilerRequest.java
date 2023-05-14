@@ -1,4 +1,11 @@
 package com.puk.compiler.pojo;
 
-public record CompilerRequest(String code,String language){
+import jakarta.enterprise.context.ApplicationScoped;
+import lombok.Getter;
+@ApplicationScoped
+@Getter
+public class CompilerRequest{
+    private String code;
+    private String language;
+    private String[] input;
 }
