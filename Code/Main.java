@@ -1,18 +1,22 @@
-import java.util.Scanner;
- 
-public class Main
-{            
-    public static void main(String[] args)
-    {
-        System.out.print("Mmbu");
-        int alphabet = 65;
-                for (int i = 0; i <= 5; i++)
-        {
-            for (int j = 0; j <= i; j++)
-            {
-                System.out.print((char) (alphabet + j) + " ");
-            }
-            System.out.print("");
-        }
-    }
-}
+# Python 3.x code to demonstrate star pattern
+
+# Function to demonstrate printing pattern
+def pypart(n):
+	
+	# outer loop to handle number of rows
+	# n in this case
+	for i in range(0, n):
+	
+		# inner loop to handle number of columns
+		# values changing acc. to outer loop
+		for j in range(0, i+1):
+		
+			# printing stars
+			print("* ",end="")
+	
+		# ending line after each row
+		print("\r")
+
+# Driver Code
+n = 5
+pypart(n)
